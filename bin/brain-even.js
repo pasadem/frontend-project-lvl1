@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { playGame } from '../src/even.js';
+import { runGame } from '../index.js';
 
-playGame();
+runGame();
 
 
 
