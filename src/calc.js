@@ -1,6 +1,5 @@
 
 import readlineSync from "readline-sync";
-
 const getNum = (num = 20) => Math.floor(Math.random() * num);
 const ops = ['+', '-', '*'];
 const num1 = getNum();
