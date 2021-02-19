@@ -1,14 +1,24 @@
 
 import readlineSync from "readline-sync";
 
-const rnum1 = (num1 = 20) => Math.floor(Math.random() * num1);
-const rnum2 = (num2 = 20) => Math.floor(Math.random() * num2);
+const getNum1 = (rnum1 = 20) => Math.floor(Math.random() * rnum1);
+const getNum2 = (rnum2 = 20) => Math.floor(Math.random() * rnum2);
 const ops = ['+', '-', '*'];
 const opsIndex = Math.floor(Math.random() * 3);
+const num1 = getNum1();
+const num2 = getNum2();
+const num3 = getNum1();
+const num4 = getNum2();
+const num5 = getNum1();
+const num6 = getNum2();
 
-//const operator = ops[opsIndex];
-const getCorrAnswer = (num1, num2, ops) => {
-  switch (opsIndex){
+const operator1 = ops[opsIndex];
+const operator2 = ops[opsIndex];
+const operator3 = ops[opsIndex];
+
+const getCorrAnswer = () => {
+  switch (operator1)
+  {
     case '+': 
       return num1 + num2;
     case '-': 
@@ -17,38 +27,25 @@ const getCorrAnswer = (num1, num2, ops) => {
       return num1 * num2;
     } 
  };
-let result = 0;
-const welcomeText = 'Welcome to the Brain Games!';
-const description = `What is the result of the expression?`;
-export const playGame = () => {
-  console.log(welcomeText);
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(`${description}`);
-  isEven(name);
-  if (result === 1) {
-    isEven(name);
-  } 
-  if (result === 2) {
-    isEven(name);
+ 
+  const corrAnswer = getCorrAnswer();
+  const stringCorrAnswer = corrAnswer.toString();
+ export const getGameData = () => {  
+  return {
+    description: `What is the result of the expression?`,
+    rounds: [
+      {
+        question: `${num1}${operator1}${num2}`, 
+        answer: stringCorrAnswer,
+      },
+      { 
+        question: `${num3}${operator2}${num4}`, 
+        answer: stringCorrAnswer,
+      },
+      {
+        question: `${num5}${operator3}${num6}`, 
+        answer: stringCorrAnswer,
+      }
+    ]
+   }
   };
-  if (result === 3) {
-    console.log(`Congratulation, ${name}!`)
-  }
-};
-
- const isEven = (name) => {
-  const operator = ops[opsIndex];
-  const num1 = rnum1();
-  const num2 = rnum2();
-  console.log(`Question: ${num1}${operator}${num2}`);
-  const answer = readlineSync.question("Your answer: ");
-  const correctAnswer = getCorrAnswer(num1, num2);
-   if (answer == correctAnswer) {
-    result += 1;
-    console.log('Correct!');
-  } else {
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${name}!`);
-  } 
-};
