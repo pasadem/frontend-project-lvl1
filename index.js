@@ -1,8 +1,7 @@
 import readlineSync from "readline-sync";
-import { getGameData } from './src/even.js';
 
-export const runGame = () => {
-  const data = getGameData();
+export const runGame = (gameData) => {
+  const data = gameData();
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
@@ -11,8 +10,9 @@ export const runGame = () => {
      const question = data.rounds[i].question;
      console.log(`Question: ${question}`);
      const correctAnswer = data.rounds[i].answer;
+     console.log(correctAnswer);
      const answer = readlineSync.question("Your answer: ");
-      if (answer === correctAnswer) {
+       if (answer === correctAnswer) {
         console.log('correct'); 
       } else {
         console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);

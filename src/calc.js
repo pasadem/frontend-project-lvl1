@@ -1,23 +1,21 @@
 
 import readlineSync from "readline-sync";
 
-const getNum1 = (rnum1 = 20) => Math.floor(Math.random() * rnum1);
-const getNum2 = (rnum2 = 20) => Math.floor(Math.random() * rnum2);
+const getNum = (num = 20) => Math.floor(Math.random() * num);
 const ops = ['+', '-', '*'];
-const opsIndex = Math.floor(Math.random() * 3);
-const num1 = getNum1();
-const num2 = getNum2();
-const num3 = getNum1();
-const num4 = getNum2();
-const num5 = getNum1();
-const num6 = getNum2();
+const num1 = getNum();
+const num2 = getNum();
+const num3 = getNum();
+const num4 = getNum();
+const num5 = getNum();
+const num6 = getNum();
 
-const operator1 = ops[opsIndex];
-const operator2 = ops[opsIndex];
-const operator3 = ops[opsIndex];
+const operator1 = ops[getNum(ops.length)];
+const operator2 = ops[getNum(ops.length)];
+const operator3 = ops[getNum(ops.length)];
 
-const getCorrAnswer = () => {
-  switch (operator1)
+const getCorrAnswer = (num1, num2, operator) => {
+  switch (operator)
   {
     case '+': 
       return num1 + num2;
@@ -27,25 +25,23 @@ const getCorrAnswer = () => {
       return num1 * num2;
     } 
  };
- 
-  const corrAnswer = getCorrAnswer();
-  const stringCorrAnswer = corrAnswer.toString();
- export const getGameData = () => {  
+  const getGameData = () => {  
   return {
     description: `What is the result of the expression?`,
     rounds: [
       {
         question: `${num1}${operator1}${num2}`, 
-        answer: stringCorrAnswer,
+        answer: getCorrAnswer(num1, num2, operator1).toString(),
       },
       { 
         question: `${num3}${operator2}${num4}`, 
-        answer: stringCorrAnswer,
+        answer: getCorrAnswer(num3, num4, operator2).toString(),
       },
       {
         question: `${num5}${operator3}${num6}`, 
-        answer: stringCorrAnswer,
+        answer: getCorrAnswer(num5, num6, operator3).toString(),
       }
     ]
    }
   };
+  export default getGameData;
