@@ -6,9 +6,9 @@ const number2 = getNumber();
 const number3 = getNumber();
 
 const isEven = (num) => num % 2 === 0;
-export const getGameData = () => {  
+const getGameData = () => {  
    return {
-     description: `Answer 'yes' if the number is even, otherwise answer 'no'.`,
+     description: `What is the result of the expression?`,
      rounds: [
        {
          question: number1, 
@@ -25,4 +25,5 @@ export const getGameData = () => {
      ]
    }
 };
+export default getGameData;
  
