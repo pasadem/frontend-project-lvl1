@@ -1,5 +1,4 @@
 import getNum from ' ./getRundomNumber.js'
-//const getNum = (num = 20) => Math.floor(Math.random() * num);
 
 const num1 = getNum();
 const num2 = getNum();

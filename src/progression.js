@@ -1,51 +1,47 @@
 import getNum from './getRundomNumber.js'
 
-const n = getNum();
-const n1 = getNum();
-const n2 = getNum();
-
-const startNumber = getNum();
-const arr = [];
-const indexHideNum = getNum();
-for (let i = startNumber; i < (startNumber + 10 * n); i += n) {
+const arrow = () => {
+  const startNumber = getNum();
+  const step = getNum();
+  const arr = [];
+  for (let i = startNumber; i < (startNumber + 10 * step); i += step) {
    arr.push(i);
+  } 
+  return arr;
 };
-const startNumber1 = getNum();
-const arr1 = [];
-const indexHideNum1 = getNum();
-for (let i = startNumber1; i < (startNumber1 + 10 * n1); i += n1) {
-   arr1.push(i);
-};
-const startNumber2 = getNum();
-const arr2 = [];
-const indexHideNum2 = getNum();
-for (let i = startNumber2; i < (startNumber2 + 10 * n2); i += n2) {
-   arr2.push(i);
-};
-const hideElement = (arr, index) => {
-    const copyarr = [...arr];
-    copyarr[index] = '..';
+const hideElement = (arrow, index) => {
+  const copyarr = [...arrow];
+  copyarr[index] = '..';
     return copyarr; 
 };
-const correctAnswer = arr[indexHideNum];
-const correctAnswer1 = arr1[indexHideNum1];
-const correctAnswer2 = arr2[indexHideNum2];
-
-const getGameData = () => {  
+const getData = () => {
+  const array = arrow();
+  const indexHideNum = getNum(10);
+  const arrayWithoutElement = hideElement(array, indexHideNum).join(' ');
+  const answer = array[indexHideNum].toString();
+    return {
+      question: arrayWithoutElement,
+      answer: answer,
+    }
+  };
+const getGameData = () => { 
+  const round1 = getData(); 
+  const round2 = getData(); 
+  const round3 = getData(); 
     return {
       description: 'What number is missing in the progression?',
       rounds: [
         {
-          question: `${hideElement(arr, indexHideNum).join(' ')}`, 
-          answer: correctAnswer.toString(),
+          question: round1.question, 
+          answer: round1.answer,
         },
         { 
-          question: `${hideElement(arr1, indexHideNum1).join(' ')}`, 
-          answer: correctAnswer1.toString(),
+          question: round2.question, 
+          answer: round2.answer,
         },
         {
-          question: `${hideElement(arr2, indexHideNum2).join(' ')}`, 
-          answer: correctAnswer2.toString(),
+          question: round3.question, 
+          answer: round3.answer,
         }
       ]
      }
