@@ -11,8 +11,6 @@
     "brain-gcd": "bin/brain-gcd.js",
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
-
-
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,5 +31,8 @@
     "eslint-plugin-import": "^2.22.1",
     "lodash": "^4.17.20",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.22.0"
   }
 }
