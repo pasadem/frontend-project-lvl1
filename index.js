@@ -11,7 +11,7 @@ export const runGame = (gameData) => {
     console.log(`Question: ${question}`)
     const correctAnswer = data.rounds[i].answer
     const answer = readlineSync.question("Your answer: ")
-      if (answer === correctAnswer) {
+    if (answer === correctAnswer) {
       console.log('correct')
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
