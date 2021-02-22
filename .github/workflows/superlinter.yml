@@ -1,50 +1,25 @@
-<<<<<<< HEAD
-name: Node CI
-=======
 name: Super-Linter
-# Name of workflow
->>>>>>> 340f5976284bd8073a8ff8858a5d9af0f59c807e
 
-# Trigger the workflow on push or pull request
-on:
-  - push
-  - pull_request
+# Run this workflow every time a new commit pushed to your repository
+on: push
 
 jobs:
-  build:
-
-    # The type of machine to run the job on
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  super-lint:
+    # Name the Job
+    name: Lint code base
+    # Set the type of machine to run on
     runs-on: ubuntu-latest
 
-    strategy:
-      # Node versions list
-      matrix:
-        node-version: [14.x]
-
     steps:
-        # Check-out repository under GitHub workspace
-        # https://github.com/actions/checkout
-      - uses: actions/checkout@v2
-        # Step's name
-      - name: Use Node.js ${{ matrix.node-version }}
-        # Configures the node version used on GitHub-hosted runners
-        # https://github.com/actions/setup-node
-        uses: actions/setup-node@v1
-        # The Node.js version to configure
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        # Install project
-        run: |
-          make install
-        # Add environment variables
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Runs the Super-Linter action
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
         env:
-          CI: true
-      - name: Run linter
-        # Run Linter
-        run: |
-          make lint
-<<<<<<< HEAD
-      
-=======
->>>>>>> 340f5976284bd8073a8ff8858a5d9af0f59c807e
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
