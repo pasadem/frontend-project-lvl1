@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 name: Node CI
+=======
+name: Super-Linter
+# Name of workflow
+>>>>>>> 340f5976284bd8073a8ff8858a5d9af0f59c807e
 
 # Trigger the workflow on push or pull request
 on:
@@ -39,4 +44,7 @@ jobs:
         # Run Linter
         run: |
           make lint
+<<<<<<< HEAD
       
+=======
+>>>>>>> 340f5976284bd8073a8ff8858a5d9af0f59c807e
