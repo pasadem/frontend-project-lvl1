@@ -4,7 +4,7 @@ export const runGame = (gameData) => {
   const data = gameData();
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello! ${name}!`);
+  console.log(`Hello, ${name}!`);
   console.log(data.description);
   for (let i = 0; i < data.rounds.length; i += 1) {
     const { question } = data.rounds[i];
