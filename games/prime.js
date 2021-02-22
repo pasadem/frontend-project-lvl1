@@ -21,7 +21,7 @@ const getGameData = () => {
         answer: isEven(num1) ? 'yes' : 'no',
       },
       {
-        question: num2, 
+        question: num2,
         answer: isEven(num2) ? 'yes' : 'no',
       },
       {
