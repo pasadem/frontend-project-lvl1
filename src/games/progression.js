@@ -1,4 +1,4 @@
-import getNum from '../src/getRundomNumber.js';
+import getNum from '../getRundomNumber.js';
 
 const arrow = () => {
   const startNumber = getNum();
@@ -24,26 +24,19 @@ const getData = () => {
     answer,
   };
 };
-const getGameData = () => {
-  const round1 = getData();
-  const round2 = getData();
-  const round3 = getData();
+const getGameData = (roundsCount) => {
+  const description = 'What number is missing in the progression?';
+  const rounds = [];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const round = getData();
+    const { question } = round;
+    const { answer } = round;
+    rounds.push({ question, answer });
+  }
   return {
-    description: 'What number is missing in the progression?',
-    rounds: [
-      {
-        question: round1.question,
-        answer: round1.answer,
-      },
-      {
-        question: round2.question,
-        answer: round2.answer,
-      },
-      {
-        question: round3.question,
-        answer: round3.answer,
-      },
-    ],
+    description,
+    rounds,
   };
 };
+
 export default getGameData;
