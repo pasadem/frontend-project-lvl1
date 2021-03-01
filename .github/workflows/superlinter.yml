@@ -1,5 +1,8 @@
 name: Node CI
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5766d7a4244f235a283c6bce7a2f163fcefd70a4
 
 # Trigger the workflow on push or pull request
 on:
@@ -20,7 +23,7 @@ jobs:
     steps:
         # Check-out repository under GitHub workspace
         # https://github.com/actions/checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         # Step's name
       - name: Use Node.js ${{ matrix.node-version }}
         # Configures the node version used on GitHub-hosted runners
