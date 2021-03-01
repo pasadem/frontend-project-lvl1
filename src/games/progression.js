@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber';
+import getNum from '../getRundomNumber.js';
 
 const ceil = (num = 20) => Math.ceil(Math.random() * num);
 const arrow = (length) => {

@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber';
+import getNum from '../getRundomNumber.js';
 
 const ops = ['+', '-', '*'];
 const getCorrAnswer = (n1, n2, oper) => {

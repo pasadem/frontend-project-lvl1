@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber';
+import getNum from '../getRundomNumber.js';
 
 const getCorrAnswer = (n1, n2) => {
   if (n2 > n1) return getCorrAnswer(n2, n1);
