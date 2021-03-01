@@ -1,13 +1,12 @@
 import getNum from '../getRundomNumber.js';
 
-const lenghtOfProgression = getNum(10);
-const n = lenghtOfProgression;
 const ceil = (num = 20) => Math.ceil(Math.random() * num);
-const arrow = (n) => {
-  const startNumber = ceil(n);
-  const step = ceil(n);
+const arrow = (length) => {
+  const startNumber = ceil(10);
+  const step = ceil(10);
   const arr = [];
-  for (let i = startNumber; i < startNumber + n * step; i += step) {
+  const corrLength = (length < 5) ? 5 : length;
+  for (let i = startNumber; i < startNumber + corrLength * step; i += step) {
     arr.push(i);
   }
   return arr;
@@ -18,10 +17,15 @@ const hideElement = (arr, index) => {
   return copyarr;
 };
 const getData = () => {
-  const array = arrow(n);
-  const indexHideNum = getNum(n);
+  const array = arrow(getNum());
+  console.log(array);
+  const indexHideNum = getNum(array.length);
+  console.log(indexHideNum);
+
   const arrayWithoutElement = hideElement(array, indexHideNum).join(' ');
+  console.log(arrayWithoutElement);
   const answer = array[indexHideNum].toString();
+  console.log(answer);
   return {
     question: arrayWithoutElement,
     answer,
@@ -32,7 +36,6 @@ const getGameData = (roundsCount) => {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const round = getData();
-    const { question, answer } = round;
     rounds.push(round);
   }
   return {
