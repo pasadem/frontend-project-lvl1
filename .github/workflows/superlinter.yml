@@ -1,4 +1,5 @@
-name: Node CI
+name: Super-Linter
+
 
 # Trigger the workflow on push or pull request
 on:
