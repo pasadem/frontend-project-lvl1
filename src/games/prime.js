@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber.js';
+import getNum from '../getRundomNumber';
 
 const isPrime = (num) => {
   if (num < 2) {

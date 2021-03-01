@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber.js';
+import getNum from '../getRundomNumber';
 
 const ceil = (num = 20) => Math.ceil(Math.random() * num);
 const arrow = (length) => {
@@ -18,14 +18,10 @@ const hideElement = (arr, index) => {
 };
 const getData = () => {
   const array = arrow(getNum());
-  console.log(array);
   const indexHideNum = getNum(array.length);
-  console.log(indexHideNum);
 
   const arrayWithoutElement = hideElement(array, indexHideNum).join(' ');
-  console.log(arrayWithoutElement);
   const answer = array[indexHideNum].toString();
-  console.log(answer);
   return {
     question: arrayWithoutElement,
     answer,

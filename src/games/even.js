@@ -1,4 +1,4 @@
-import getNum from '../getRundomNumber.js';
+import getNum from '../getRundomNumber';
 
 const isEven = (number) => number % 2 === 0;
 const getAnswer = (question) => {
