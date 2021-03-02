@@ -1,7 +1,7 @@
 name: Node CI
 <<<<<<< HEAD
 
-=======
+
 >>>>>>> 5766d7a4244f235a283c6bce7a2f163fcefd70a4
 
 # Trigger the workflow on push or pull request
