@@ -1,46 +1,32 @@
-name: Node CI
-<<<<<<< HEAD
+name: build
 
-=======
->>>>>>> 5766d7a4244f235a283c6bce7a2f163fcefd70a4
-
-# Trigger the workflow on push or pull request
 on:
   - push
   - pull_request
 
 jobs:
-  build:
-
-    # The type of machine to run the job on
+  lint:
+    name: Lint code base
     runs-on: ubuntu-latest
 
     strategy:
-      # Node versions list
       matrix:
-        node-version: [14.x]
+        node-version: [ 14.x ]
 
     steps:
-        # Check-out repository under GitHub workspace
-        # https://github.com/actions/checkout
+      - name: Checkout code
         uses: actions/checkout@v2
-        # Step's name
+
       - name: Use Node.js ${{ matrix.node-version }}
-        # Configures the node version used on GitHub-hosted runners
-        # https://github.com/actions/setup-node
         uses: actions/setup-node@v1
-        # The Node.js version to configure
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
-        # Install project
-        run: |
-          make install
-        # Add environment variables
+
+      - name: Install modules
+        run: make install
+
         env:
           CI: true
-      - name: Run linter
-        # Run Linter
-        run: |
-          make lint
-      - name: Test & publish code coverage
+
+      - name: Run ESLint
+        run: make lint
