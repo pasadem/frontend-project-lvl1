@@ -26,14 +26,12 @@
   },
   "homepage": "https://github.com/pasadem/frontend-project-lvl1#readme",
   "dependencies": {
-    "eslint": "^7.19.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
     "lodash": "^4.17.20",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    "eslint-plugin-jest": "^24.1.5",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }

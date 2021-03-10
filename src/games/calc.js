@@ -1,8 +1,8 @@
 import getNum from '../getRundomNumber.js';
 
-const ops = ['+', '-', '*'];
-const getCorrAnswer = (n1, n2, oper) => {
-  switch (oper) {
+const operators = ['+', '-', '*'];
+const getCorrectAnswer = (n1, n2, operator) => {
+  switch (operator) {
     case '+':
       return n1 + n2;
     case '-':
@@ -11,17 +11,17 @@ const getCorrAnswer = (n1, n2, oper) => {
       return n1 * n2;
     default:
       break;
-  } return oper;
+  } return operator;
 };
 const getGameData = (roundsCount) => {
   const description = 'What is the result of the expression?';
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    const operator = ops[getNum(ops.length)];
+    const operator = operators[getNum(operators.length)];
     const num1 = getNum();
     const num2 = getNum();
     const question = `${num1} ${operator} ${num2}`;
-    const answer = getCorrAnswer(num1, num2, operator).toString();
+    const answer = getCorrectAnswer(num1, num2, operator).toString();
     rounds.push({ question, answer });
   }
   return {

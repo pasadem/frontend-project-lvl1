@@ -4,12 +4,13 @@ const ceil = (num = 20) => Math.ceil(Math.random() * num);
 const arrow = (length) => {
   const startNumber = ceil(10);
   const step = ceil(10);
-  const arr = [];
-  const corrLength = (length < 5) ? 5 : length;
+  const progression = [];
+  const minLength = 5;
+  const corrLength = (length < minLength) ? minLength : length;
   for (let i = startNumber; i < startNumber + corrLength * step; i += step) {
-    arr.push(i);
+    progression.push(i);
   }
-  return arr;
+  return progression;
 };
 const hideElement = (arr, index) => {
   const copyarr = [...arr];
