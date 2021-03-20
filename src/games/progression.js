@@ -1,7 +1,7 @@
 import getNum from '../getRundomNumber.js';
 
 const ceil = (num = 20) => Math.ceil(Math.random() * num);
-const arrow = (length) => {
+const getProgression = (length) => {
   const startNumber = ceil(10);
   const step = ceil(10);
   const progression = [];
@@ -17,14 +17,14 @@ const hideElement = (arr, index) => {
   copyarr[index] = '..';
   return copyarr;
 };
-const getData = () => {
-  const array = arrow(getNum());
-  const indexHideNum = getNum(array.length);
+const getRoundData = () => {
+  const progression = getProgression(getNum());
+  const indexHideNum = getNum(progression.length);
 
-  const arrayWithoutElement = hideElement(array, indexHideNum).join(' ');
-  const answer = array[indexHideNum].toString();
+  const question = hideElement(progression, indexHideNum).join(' ');
+  const answer = progression[indexHideNum].toString();
   return {
-    question: arrayWithoutElement,
+    question,
     answer,
   };
 };
@@ -32,7 +32,7 @@ const getGameData = (roundsCount) => {
   const description = 'What number is missing in the progression?';
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    const round = getData();
+    const round = getRoundData();
     rounds.push(round);
   }
   return {
