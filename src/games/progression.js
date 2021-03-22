@@ -1,12 +1,12 @@
-import getNum from '../getRundomNumber.js';
+import getRundomNumber from '../getRundomNumber.js';
 
-const ceil = (num = 20) => Math.ceil(Math.random() * num);
+const description = 'What number is missing in the progression?';
 const getProgression = (length) => {
-  const startNumber = ceil(10);
-  const step = ceil(10);
+  const startNumber = getRundomNumber(1, 10);
+  const step = getRundomNumber(1, 10);
   const progression = [];
   const minLength = 5;
-  const corrLength = (length < minLength) ? minLength : length;
+  const corrLength = Math.max(length, minLength);
   for (let i = startNumber; i < startNumber + corrLength * step; i += step) {
     progression.push(i);
   }
@@ -18,8 +18,8 @@ const hideElement = (arr, index) => {
   return copyarr;
 };
 const getRoundData = () => {
-  const progression = getProgression(getNum());
-  const indexHideNum = getNum(progression.length);
+  const progression = getProgression(getRundomNumber());
+  const indexHideNum = getRundomNumber(1, 10);
 
   const question = hideElement(progression, indexHideNum).join(' ');
   const answer = progression[indexHideNum].toString();
@@ -29,7 +29,6 @@ const getRoundData = () => {
   };
 };
 const getGameData = (roundsCount) => {
-  const description = 'What number is missing in the progression?';
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const round = getRoundData();

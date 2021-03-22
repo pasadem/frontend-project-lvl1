@@ -1,5 +1,6 @@
-import getNum from '../getRundomNumber.js';
+import getRundomNumber from '../getRundomNumber.js';
 
+const description = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 const getCorrectAnswer = (n1, n2, operator) => {
   switch (operator) {
@@ -10,16 +11,16 @@ const getCorrectAnswer = (n1, n2, operator) => {
     case '*':
       return n1 * n2;
     default:
-      break;
-  } return operator;
+      throw new Error("Operator doesn't exist");
+  }
 };
 const getGameData = (roundsCount) => {
-  const description = 'What is the result of the expression?';
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    const operator = operators[getNum(operators.length)];
-    const num1 = getNum();
-    const num2 = getNum();
+    const operator = operators[getRundomNumber(0, 2)];
+    const num1 = getRundomNumber();
+    const num2 = getRundomNumber();
+
     const question = `${num1} ${operator} ${num2}`;
     const answer = getCorrectAnswer(num1, num2, operator).toString();
     rounds.push({ question, answer });
